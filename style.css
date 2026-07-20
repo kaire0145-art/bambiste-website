@@ -1,8 +1,7 @@
-/* =====================================================
+ /* =====================================================
    BAMBISTE WEBSITE
    MAIN STYLESHEET
 ===================================================== */
-
 
 /* =====================================================
    RESET
@@ -37,7 +36,6 @@ a{
 ul{
     list-style:none;
 }
-
 
 /* =====================================================
    REUSABLE
@@ -78,96 +76,88 @@ section{
     box-shadow:0 12px 30px rgba(0,0,0,.15);
 
 }
-
-
-/* =====================================================
+/* =====================================
    HEADER
-===================================================== */
+===================================== */
 
 header{
-
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
-
     z-index:1000;
-
-    background:rgba(0,0,0,.18);
-
-    backdrop-filter:blur(12px);
-
     transition:.35s ease;
+}
 
+header.scrolled{
+    background:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .navbar{
 
-    width:90%;
-
-    max-width:1300px;
+    width:92%;
+    max-width:1400px;
 
     margin:auto;
 
-    display:flex;
+    height:80px;
 
+    display:flex;
+    align-items:center;
     justify-content:space-between;
 
-    align-items:center;
-
-    padding:18px 0;
-
 }
-
-
-/* =====================================================
-   LOGO
-===================================================== */
 
 .logo{
 
     display:flex;
-
     align-items:center;
+    
 
-    gap:12px;
 
-    color:#fff;
+}
 
-    font-size:1.35rem;
+.logo,
+.logo:link,
+.logo:visited{
+    color:#ffffff;
+}
 
-    font-weight:700;
+.logo span{
 
-    letter-spacing:3px;
+    color:#ffffff;
+
+    font-size:1.7rem;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    margin-left:12px;
+
+    text-transform:uppercase;
 
 }
 
 .logo img{
 
-    width:50px;
-
-    height:50px;
-
-    object-fit:cover;
+    width:55px;
+    height:55px;
 
     border-radius:50%;
 
-    transition:.35s ease;
+    object-fit:cover;
+
+    transition:.3s;
 
 }
 
 .logo:hover img{
 
-    transform:rotate(8deg) scale(1.08);
+    transform:scale(1.08);
 
 }
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
 
 .nav-links{
 
@@ -175,27 +165,29 @@ header{
 
     align-items:center;
 
-    gap:42px;
+    gap:45px;
 
 }
 
 .nav-links a{
 
-    position:relative;
-
     color:#fff;
 
     font-size:.95rem;
 
-    font-weight:500;
+    font-weight:600;
 
-    transition:.3s ease;
+    letter-spacing:1px;
+
+    position:relative;
+
+    transition:.3s;
 
 }
 
-.nav-links a:hover{
+header.scrolled .nav-links a{
 
-    color:#d9b36c;
+    color:#222;
 
 }
 
@@ -206,16 +198,20 @@ header{
     position:absolute;
 
     left:0;
-
     bottom:-6px;
 
     width:0;
-
     height:2px;
 
     background:#d9b36c;
 
     transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#d9b36c;
 
 }
 
@@ -245,7 +241,6 @@ header{
     overflow:hidden;
 
 }
-
 
 /* =====================================================
    HERO SLIDER
@@ -291,7 +286,6 @@ header{
 
 }
 
-
 /* Individual image positioning */
 
 .hero-top{
@@ -318,7 +312,6 @@ header{
 
 }
 
-
 /* =====================================================
    HERO OVERLAY
 ===================================================== */
@@ -338,7 +331,6 @@ header{
     );
 
 }
-
 
 /* =====================================================
    HERO CONTENT
@@ -397,7 +389,6 @@ header{
     color:#f2f2f2;
 
 }
-
 
 /* =====================================================
    SCROLL INDICATOR
@@ -537,7 +528,6 @@ header{
 
 }
 
-
 /* =====================================================
    FUTURE SECTIONS
 ===================================================== */
@@ -557,7 +547,6 @@ header{
     margin:auto;
 
 }
-
 
 /* =====================================================
    SCROLLBAR
@@ -588,7 +577,6 @@ header{
     background:#bf9850;
 
 }
-
 
 /* =====================================================
    SELECTION
@@ -628,7 +616,7 @@ header{
 
     background:
     linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("images/about/about-hero.jpg") center center/cover;
+    url("statue1.png") center center/cover;
 
 }
 
@@ -895,7 +883,7 @@ header{
 
     background:
     linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("images/contact/contact-hero.jpg") center center/cover;
+    url("tree.JPG") center center/cover;
 
 }
 
@@ -931,7 +919,6 @@ header{
 
 }
 
-
 /* ==========================
    CONTACT SECTION
 ========================== */
@@ -965,7 +952,6 @@ header{
     margin-bottom:40px;
 
 }
-
 
 /* ==========================
    CONTACT CARDS
@@ -1024,7 +1010,6 @@ header{
     line-height:1.8;
 
 }
-
 
 /* ==========================
    CONTACT FORM
@@ -1093,7 +1078,6 @@ header{
     width:100%;
 
 }
-
 
 /* ==========================
    SOCIAL SECTION
@@ -1165,7 +1149,6 @@ header{
 
 }
 
-
 /* ==========================
    FINAL QUOTE
 ========================== */
@@ -1188,7 +1171,7 @@ header{
 
     background:
     linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
-    url("images/contact/contact-quote.jpg") center center/cover;
+    url("gal.PNG") center center/cover;
 
 }
 
@@ -1243,7 +1226,7 @@ header{
     text-align:center;
 
     background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("../images/hero/hero1.jpg") center center/cover;
+    url("car.jpg") center center/cover;
 
     color:#fff;
 
@@ -1270,7 +1253,6 @@ header{
     line-height:1.8;
 
 }
-
 
 /* ==========================
    SECTION HEADINGS
@@ -1303,7 +1285,6 @@ header{
     line-height:1.8;
 
 }
-
 
 /* ==========================
    CATEGORIES
@@ -1391,7 +1372,6 @@ header{
 
 }
 
-
 /* ==========================
    PRODUCTS
 ========================== */
@@ -1466,7 +1446,6 @@ header{
 
 }
 
-
 /* =====================================================
    RESPONSIVE
 ===================================================== */
@@ -1486,7 +1465,6 @@ header{
     }
 
 }
-
 
 @media (max-width:900px){
 
@@ -1584,44 +1562,31 @@ header{
 
 }
 
-
 @media (max-width:768px){
 
     .navbar{
 
-        flex-direction:column;
+        height:auto;
 
-        gap:18px;
+        padding:18px 0;
+
+        flex-direction:column;
 
     }
 
     .logo{
 
-        font-size:1.2rem;
-
-    }
-
-    .logo img{
-
-        width:44px;
-
-        height:44px;
+        margin-bottom:15px;
 
     }
 
     .nav-links{
 
-        flex-wrap:wrap;
-
         justify-content:center;
 
-        gap:18px;
+        flex-wrap:wrap;
 
-    }
-
-    .hero{
-
-        min-height:85vh;
+        gap:22px;
 
     }
 
@@ -1631,19 +1596,14 @@ header{
 
     }
 
-    .subtitle{
-
-        font-size:.8rem;
-
-        letter-spacing:3px;
-
-    }
-
     .description{
 
-        line-height:1.8;
+        font-size:1rem;
 
     }
+
+}
+
 
     .btn{
 
@@ -1656,8 +1616,6 @@ header{
         padding:90px 0;
 
     }
-
-}
 
 
 @media (max-width:480px){
