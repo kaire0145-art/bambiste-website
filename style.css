@@ -132,7 +132,7 @@ header.scrolled{
 
     font-weight:800;
 
-    letter-spacing:4px;
+    letter-spacing:5px;
 
     margin-left:12px;
 
@@ -142,14 +142,47 @@ header.scrolled{
 
 .logo img{
 
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
+    width:62px;
+    height:62px;
 
     object-fit:cover;
+    border-radius:50%;
+}
 
-    transition:.3s;
+/* =====================================
+   INNER PAGE NAVBAR
+===================================== */
+
+.inner-page header{
+
+    background:#ffffff;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.inner-page .logo,
+.inner-page .logo span{
+
+    color:#111;
+
+}
+
+.inner-page .nav-links a{
+
+    color:#111;
+
+}
+
+.inner-page .nav-links a:hover{
+
+    color:#d9b36c;
+
+}
+
+.inner-page header.scrolled{
+
+    background:#ffffff;
 
 }
 
@@ -2292,38 +2325,4 @@ header.scrolled .nav-links a{
     }
     
 }
-/* =====================================================
-   PRODUCT PAGE NAVBAR
-===================================================== */
 
-.product-page ~ *,
-body:has(.product-page) header{
-
-    background:#ffffff;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-}
-
-body:has(.product-page) .logo{
-
-    color:#111;
-
-}
-
-body:has(.product-page) .nav-links a{
-
-    color:#111;
-
-}
-
-body:has(.product-page) .nav-links a:hover{
-
-    color:#d9b36c;
-
-}
-
-body:has(.product-page) .logo span{
-
-    color:#111;
-
-}
