@@ -253,6 +253,17 @@ header.scrolled .nav-links a{
     width:100%;
 
 }
+.menu-toggle{
+
+    display:none;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+    color:#222;
+
+}
 
 
 /* =====================================================
@@ -1723,30 +1734,57 @@ header.scrolled .nav-links a{
 
     .navbar{
 
-        height:auto;
+    height:80px;
 
-        padding:18px 0;
+    flex-direction:row;
 
-        flex-direction:column;
+}
 
-    }
+.menu-toggle{
 
-    .logo{
+    display:block;
 
-        margin-bottom:15px;
+    font-size:2rem;
 
-    }
+}
 
-    .nav-links{
+.nav-links{
 
-        justify-content:center;
+    position:absolute;
 
-        flex-wrap:wrap;
+    top:80px;
 
-        gap:22px;
+    left:0;
 
-    }
+    width:100%;
 
+    background:#fff;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    padding:35px 0;
+
+    display:none;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.nav-links.active{
+
+    display:flex;
+
+}
+
+.nav-links a{
+
+    color:#222;
+
+    font-size:1rem;
+
+}
     .hero h1{
 
         font-size:2.7rem;
