@@ -264,6 +264,32 @@ header.scrolled .nav-links a{
     color:#222;
 
 }
+.cart-link a{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+
+#cart-count{
+
+    background:#d9b36c;
+    color:#fff;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:.8rem;
+    font-weight:700;
+
+}
 
 
 /* =====================================================
@@ -2336,7 +2362,7 @@ header.scrolled .nav-links a{
         grid-template-columns:1fr;
 
     }
-
+    
 }
 
 @media(max-width:480px){
