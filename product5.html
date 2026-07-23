@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body class="inner-page">
 
 <!-- ==========================
 HEADER
@@ -28,24 +28,31 @@ HEADER
 
     <nav class="navbar">
 
-        <a href="index.html" class="logo">
+    <a href="index.html" class="logo">
+        <img src="logo.PNG" alt="Bambiste Logo">
+        <span>BAMBISTE</span>
+    </a>
 
-            <img src="logo.PNG" alt="Bambiste Logo">
+    <!-- Hamburger Button -->
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
 
-            <span>BAMBISTE</span>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
 
-        </a>
+        <li class="cart-link">
+            <a href="cart.html">
+              🛒 <span id="cart-count">0</span>
+            </a>
 
-        <ul class="nav-links">
+    </li>
+    </ul>
 
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-
-        </ul>
-
-    </nav>
+</nav>
 
 </header>
 
@@ -132,14 +139,11 @@ Inspired by the spirit of Senegal, the Bambiste Heritage T-Shirt is designed for
 <h3>Choose Size</h3>
 
 <div class="sizes">
-
-<button>XS</button>
-<button>S</button>
-<button class="selected">M</button>
-<button>L</button>
-<button>XL</button>
-<button>XXL</button>
-
+    <button class="size-btn">XS</button>
+    <button class="size-btn">S</button>
+    <button class="size-btn">M</button>
+    <button class="size-btn">L</button>
+    <button class="size-btn">XL</button>
 </div>
 
 </div>
@@ -151,21 +155,15 @@ Inspired by the spirit of Senegal, the Bambiste Heritage T-Shirt is designed for
 <h3>Quantity</h3>
 
 <div class="quantity-box">
-
-<button>-</button>
-
-<span>1</span>
-
-<button>+</button>
-
+    <button id="minus">−</button>
+    <span id="quantity">1</span>
+    <button id="plus">+</button>
+</div>
 </div>
 
-</div>
-
-<a href="#" class="btn">
-
-Add To Bag
-
+<a href="cart.html" class="btn" id="addCart">
+    Add to Cart
+</a>
 </a>
 
 <a href="#" class="btn secondary-btn">
@@ -288,7 +286,7 @@ View Product
 
 <h3>Roots Collection</h3>
 
-<p>£44.99</p>
+<p>£39.99</p>
 
 <a href="#" class="btn">
 
@@ -304,7 +302,7 @@ View Product
 
 <h3>Classic Tee</h3>
 
-<p>£34.99</p>
+<p>£39.99</p>
 
 <a href="#" class="btn">
 
@@ -323,7 +321,9 @@ View Product
 </main>
 
 <script src="script.js"></script>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script src="product.js"></script>
 
 </body>
-
 </html>
