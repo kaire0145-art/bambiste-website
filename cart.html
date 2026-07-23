@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Bambiste</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="inner-page">
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+<img src="logo.PNG" alt="Logo">
+<span>BAMBISTE</span>
+</a>
+
+<div class="menu-toggle" id="menu-toggle">☰</div>
+
+<ul class="nav-links" id="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+
+<li class="cart-link">
+<a href="cart.html">
+🛒 <span id="cart-count">0</span>
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="product-page">
+
+<div class="container">
+
+<h1 style="margin-bottom:40px;">Shopping Cart</h1>
+
+<div id="cart-items"></div>
+
+<div style="margin-top:40px;text-align:right;">
+
+<h2>
+Subtotal:
+£<span id="subtotal">0.00</span>
+</h2>
+
+<br>
+
+<a href="#" class="btn">
+Proceed to Checkout
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+<script src="cart.js"></script>
+
+</body>
+</html>
