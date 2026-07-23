@@ -2,78 +2,66 @@
 // PRODUCT PAGE
 // ===============================
 
+// SIZE SELECTION
+const sizeButtons = document.querySelectorAll(".size-btn");
 let selectedSize = "";
+
+sizeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        sizeButtons.forEach(btn => btn.classList.remove("selected"));
+        button.classList.add("selected");
+        selectedSize = button.textContent;
+    });
+});
+
+// QUANTITY
 let quantity = 1;
 
-// Size Selection
-document.querySelectorAll(".size-btn").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        document.querySelectorAll(".size-btn").forEach(btn =>
-            btn.classList.remove("selected")
-        );
-
-        button.classList.add("selected");
-
-        selectedSize = button.textContent;
-
-    });
-
-});
-
-// Quantity
 const quantityDisplay = document.getElementById("quantity");
 
-document.getElementById("plus").addEventListener("click", () => {
+if (quantityDisplay) {
 
-    quantity++;
-
-    quantityDisplay.textContent = quantity;
-
-});
-
-document.getElementById("minus").addEventListener("click", () => {
-
-    if (quantity > 1) {
-
-        quantity--;
-
+    document.getElementById("plus").addEventListener("click", () => {
+        quantity++;
         quantityDisplay.textContent = quantity;
+    });
 
-    }
+    document.getElementById("minus").addEventListener("click", () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityDisplay.textContent = quantity;
+        }
+    });
 
-});
+}
 
-// Add to Cart
-document.getElementById("addCart").addEventListener("click", function (e) {
+// ADD TO CART
+const addCartBtn = document.querySelector(".add-cart");
 
-    e.preventDefault();
+if (addCartBtn) {
 
-    if (selectedSize === "") {
+    addCartBtn.addEventListener("click", function (e) {
 
-        alert("Please select a size.");
+        e.preventDefault();
 
-        return;
+        if (selectedSize === "") {
+            alert("Please select a size.");
+            return;
+        }
 
-    }
+        const product = {
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: Number(this.dataset.price),
+            image: this.dataset.image,
+            size: selectedSize,
+            quantity: quantity
+        };
 
-    addProduct({
+        addProduct(product);
 
-        id: products.heritageTee.id,
-
-        name: products.heritageTee.name,
-
-        price: products.heritageTee.price,
-
-        image: products.heritageTee.image,
-
-        size: selectedSize,
-
-        quantity: quantity
+        window.location.href = "cart.html";
 
     });
 
-    window.location.href = "cart.html";
-
-});
+}
