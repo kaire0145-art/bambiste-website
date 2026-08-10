@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | Bambiste</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="checkout.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="inner-page">
+
+<!-- ==========================
+HEADER
+========================== -->
+
+<header>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+<img src="logo.PNG" alt="Bambiste Logo">
+
+<span>BAMBISTE</span>
+
+</a>
+
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+<ul class="nav-links" id="nav-links">
+
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li>
+<a href="shop.html">Shop</a>
+</li>
+
+<li>
+<a href="about.html">About</a>
+</li>
+
+<li>
+<a href="contact.html">Contact</a>
+</li>
+
+<li class="cart-link">
+
+<a href="cart.html">
+🛒 <span id="cart-count">0</span>
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<!-- ==========================
+CHECKOUT
+========================== -->
+
+<main>
+
+<section class="checkout-page">
+
+<div class="container">
+
+<div class="checkout-heading">
+
+<p class="section-subtitle">
+BAMBISTE
+</p>
+
+<h1>Checkout</h1>
+
+<p>
+Complete your details below to place your order.
+</p>
+
+</div>
+
+
+<div class="checkout-grid">
+
+
+<!-- ==========================
+CUSTOMER DETAILS
+========================== -->
+
+<div class="checkout-form-box">
+
+<h2>Shipping Details</h2>
+
+<p class="checkout-intro">
+Where should we send your order?
+</p>
+
+
+<form id="checkoutForm">
+
+
+<div class="form-group">
+
+<label for="fullName">
+Full Name
+</label>
+
+<input
+type="text"
+id="fullName"
+name="fullName"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+Email Address
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Enter your email address"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="phone">
+Phone Number
+</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="Enter your phone number"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="address">
+Address
+</label>
+
+<input
+type="text"
+id="address"
+name="address"
+placeholder="Street address"
+required>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label for="city">
+City
+</label>
+
+<input
+type="text"
+id="city"
+name="city"
+placeholder="City"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="postcode">
+Postcode
+</label>
+
+<input
+type="text"
+id="postcode"
+name="postcode"
+placeholder="Postcode"
+required>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="country">
+Country
+</label>
+
+<select id="country" name="country" required>
+
+<option value="">
+Select your country
+</option>
+
+<option value="United Kingdom">
+United Kingdom
+</option>
+
+<option value="Senegal">
+Senegal
+</option>
+
+<option value="France">
+France
+</option>
+
+<option value="Spain">
+Spain
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<!-- ==========================
+PAYMENT
+========================== -->
+
+<div class="checkout-payment">
+
+<h2>Payment Method</h2>
+
+<p class="checkout-intro">
+Choose your preferred payment method.
+</p>
+
+
+<div class="payment-methods">
+
+
+<div class="payment-option selected">
+
+<div class="payment-radio">
+</div>
+
+<div class="payment-details">
+
+<strong>Card Payment</strong>
+
+<span>Visa, Mastercard and other cards</span>
+
+</div>
+
+<div class="payment-logo">
+💳
+</div>
+
+</div>
+
+
+<div class="payment-option">
+
+<div class="payment-radio">
+</div>
+
+<div class="payment-details">
+
+<strong>Apple Pay</strong>
+
+<span>Pay securely with Apple Pay</span>
+
+</div>
+
+<div class="payment-logo">
+
+</div>
+
+</div>
+
+
+<div class="payment-option">
+
+<div class="payment-radio">
+</div>
+
+<div class="payment-details">
+
+<strong>Google Pay</strong>
+
+<span>Pay securely with Google Pay</span>
+
+</div>
+
+<div class="payment-logo">
+G
+</div>
+
+</div>
+
+
+<div class="payment-option">
+
+<div class="payment-radio">
+</div>
+
+<div class="payment-details">
+
+<strong>PayPal</strong>
+
+<span>Pay securely with PayPal</span>
+
+</div>
+
+<div class="payment-logo">
+P
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<button
+    type="submit"
+    class="btn checkout-btn"
+    id="place-order">
+
+    Complete Order
+
+</button>
+
+
+</form>
+
+</div>
+
+
+<!-- ==========================
+ORDER SUMMARY
+========================== -->
+
+<div class="order-summary">
+
+<div class="summary-header">
+
+<h2>Your Order</h2>
+
+<span class="secure-checkout">
+🔒 Secure Checkout
+</span>
+
+</div>
+
+
+<div id="checkout-items">
+
+<!-- Products inserted by checkout.js -->
+
+</div>
+
+
+<div class="summary-divider">
+</div>
+
+
+<div class="summary-row">
+
+<span>Subtotal</span>
+
+<strong>
+£<span id="checkout-subtotal">0.00</span>
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>Shipping</span>
+
+<strong class="free-shipping">
+FREE
+</strong>
+
+</div>
+
+
+<div class="summary-divider">
+</div>
+
+
+<div class="summary-row checkout-total">
+
+<span>Total</span>
+
+<strong>
+£<span id="checkout-total">0.00</span>
+</strong>
+
+</div>
+
+
+<div class="checkout-security">
+
+🔒 Your information is securely protected.
+
+</div>
+
+
+<a href="cart.html" class="back-to-cart">
+← Back to Cart
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script src="script.js"></script>
+<script src="cart.js"></script>
+<script src="checkout.js"></script>
+
+</body>
+
+</html>
