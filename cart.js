@@ -63,7 +63,15 @@ if(cartContainer){
 
                     <p>Size: ${item.size}</p>
 
-                    <p>Quantity: ${item.quantity}</p>
+                <div class="cart-quantity">
+
+    <button onclick="decreaseQuantity(${index})">−</button>
+
+    <span>${item.quantity}</span>
+
+    <button onclick="increaseQuantity(${index})">+</button>
+
+</div>
 
                     <h4>£${(item.price * item.quantity).toFixed(2)}</h4>
 
@@ -79,6 +87,8 @@ if(cartContainer){
 
         document.getElementById("subtotal").textContent =
             subtotal.toFixed(2);
+        document.getElementById("total").textContent =
+             subtotal.toFixed(2);
 
         updateCartCounter();
     }
@@ -92,6 +102,37 @@ if(cartContainer){
         displayCart();
 
     }
+    // ADD THIS
+
+window.increaseQuantity = function(index){
+
+    cart[index].quantity++;
+
+    saveCart();
+
+    displayCart();
+
+}
+
+// ADD THIS
+
+window.decreaseQuantity = function(index){
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+    }else{
+
+        cart.splice(index,1);
+
+    }
+
+    saveCart();
+
+    displayCart();
+
+}
 
     displayCart();
 }
