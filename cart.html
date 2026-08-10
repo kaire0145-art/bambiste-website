@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart | Bambiste</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Your Cart | Bambiste</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="inner-page">
@@ -20,13 +24,16 @@
 <nav class="navbar">
 
 <a href="index.html" class="logo">
-<img src="logo.PNG" alt="Logo">
+<img src="logo.PNG" alt="Bambiste Logo">
 <span>BAMBISTE</span>
 </a>
 
-<div class="menu-toggle" id="menu-toggle">☰</div>
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
 
 <ul class="nav-links" id="nav-links">
+
 <li><a href="index.html">Home</a></li>
 <li><a href="shop.html">Shop</a></li>
 <li><a href="about.html">About</a></li>
@@ -44,25 +51,69 @@
 
 </header>
 
+
 <section class="product-page">
 
 <div class="container">
 
-<h1 style="margin-bottom:40px;">Shopping Cart</h1>
+<h1 style="margin-bottom:15px;">
+Shopping Cart
+</h1>
 
-<div id="cart-items"></div>
+<p style="color:#777;margin-bottom:40px;">
+Review your items before checkout.
+</p>
 
-<div style="margin-top:40px;text-align:right;">
+<div id="cart-items">
 
-<h2>
-Subtotal:
-£<span id="subtotal">0.00</span>
-</h2>
+<!-- Cart items are inserted automatically by cart.js -->
+
+</div>
+
+<div class="cart-summary">
+
+<h2>Order Summary</h2>
+
+<div class="summary-row">
+
+<span>Subtotal</span>
+
+<strong>£<span id="subtotal">0.00</span></strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>Shipping</span>
+
+<strong>FREE</strong>
+
+</div>
+
+<hr>
+
+<div class="summary-row total-row">
+
+<span>Total</span>
+
+<strong>£<span id="total">0.00</span></strong>
+
+</div>
 
 <br>
 
-<a href="#" class="btn">
+<a href="checkout.html" class="btn checkout-btn">
+
 Proceed to Checkout
+
+</a>
+
+<br><br>
+
+<a href="shop.html" class="btn secondary-btn">
+
+Continue Shopping
+
 </a>
 
 </div>
@@ -75,4 +126,5 @@ Proceed to Checkout
 <script src="cart.js"></script>
 
 </body>
+
 </html>
