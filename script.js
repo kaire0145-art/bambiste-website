@@ -4,25 +4,28 @@
 
 const slides = document.querySelectorAll(".hero-slider img");
 
-let currentSlide = 0;
+if (slides.length > 0) {
 
-function showNextSlide(){
+    let currentSlide = 0;
 
-    slides[currentSlide].classList.remove("active");
+    function showNextSlide() {
 
-    currentSlide++;
+        slides[currentSlide].classList.remove("active");
 
-    if(currentSlide >= slides.length){
+        currentSlide++;
 
-        currentSlide = 0;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+
+        slides[currentSlide].classList.add("active");
 
     }
 
-    slides[currentSlide].classList.add("active");
+    setInterval(showNextSlide, 4000);
 
 }
 
-setInterval(showNextSlide, 4000);
 
 // ===============================
 // STORY SLIDESHOW
@@ -30,28 +33,42 @@ setInterval(showNextSlide, 4000);
 
 const storySlides = document.querySelectorAll(".story-slider img");
 
-let currentStory = 0;
+if (storySlides.length > 0) {
 
-function showNextStory(){
+    let currentStory = 0;
 
-    storySlides[currentStory].classList.remove("active-story");
+    function showNextStory() {
 
-    currentStory++;
+        storySlides[currentStory].classList.remove("active-story");
 
-    if(currentStory >= storySlides.length){
+        currentStory++;
 
-        currentStory = 0;
+        if (currentStory >= storySlides.length) {
+            currentStory = 0;
+        }
+
+        storySlides[currentStory].classList.add("active-story");
 
     }
 
-    storySlides[currentStory].classList.add("active-story");
+    setInterval(showNextStory, 4500);
 
 }
 
-setInterval(showNextStory, 4500);
+
+// ===============================
+// MOBILE MENU
+// ===============================
+
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+}
