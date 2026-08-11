@@ -162,39 +162,82 @@
 
             <div class="contact-form">
 
-                <form>
+                <form
+    action="https://formsubmit.co/kaire0145@gmail.com"
+    method="POST"
+>
 
-                    <div class="input-group">
+    <!-- Email subject -->
+    <input
+        type="hidden"
+        name="_subject"
+        value="New Bambiste Contact Message"
+    >
 
-                        <input type="text" placeholder="Full Name" required>
+    <!-- Redirect after sending -->
+    <input
+        type="hidden"
+        name="_next"
+        value="https://YOUR-WEBSITE-DOMAIN/success-contact.html"
+    >
 
-                    </div>
+    <!-- Disable FormSubmit captcha -->
+    <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+    >
 
-                    <div class="input-group">
+    <div class="input-group">
 
-                        <input type="email" placeholder="Email Address" required>
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+        >
 
-                    </div>
+    </div>
 
-                    <div class="input-group">
+    <div class="input-group">
 
-                        <input type="text" placeholder="Subject">
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+        >
 
-                    </div>
+    </div>
 
-                    <div class="input-group">
+    <div class="input-group">
 
-                        <textarea rows="6" placeholder="Your Message" required></textarea>
+        <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+        >
 
-                    </div>
+    </div>
 
-                    <button class="btn" type="submit">
+    <div class="input-group">
 
-                        Send Message
+        <textarea
+            name="message"
+            rows="6"
+            placeholder="Your Message"
+            required
+        ></textarea>
 
-                    </button>
+    </div>
 
-                </form>
+    <button class="btn" type="submit">
+
+        Send Message
+
+    </button>
+
+</form>
 
             </div>
 
