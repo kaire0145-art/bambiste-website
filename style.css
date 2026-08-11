@@ -3325,5 +3325,424 @@ PAYMENT METHODS
 
 }
 
+
+}
+/* =====================================================
+   BAMBISTE - IMPROVED SHOPPING CART
+===================================================== */
+
+/* CART PAGE */
+
+.cart-page {
+    padding: 170px 0 100px;
+    background: #f8f6f2;
+    min-height: 100vh;
+}
+
+.cart-page .container {
+    max-width: 1200px;
+}
+
+/* CART TITLE */
+
+.cart-page h1 {
+    font-size: 3rem;
+    color: #111;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.cart-page .cart-subtitle {
+    text-align: center;
+    color: #777;
+    margin-top: -30px;
+    margin-bottom: 50px;
+}
+
+/* CART ITEMS AREA */
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* INDIVIDUAL CART ITEM */
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    align-items: center;
+    gap: 30px;
+
+    background: #fff;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.07);
+
+    transition: .35s ease;
+}
+
+.cart-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.11);
+}
+
+/* PRODUCT IMAGE */
+
+.cart-item img {
+    width: 130px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+/* PRODUCT INFORMATION */
+
+.cart-info {
+    min-width: 0;
+}
+
+.cart-info h3 {
+    font-size: 1.3rem;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.cart-info p {
+    color: #777;
+    margin: 6px 0;
+    font-size: .95rem;
+}
+
+.cart-info h4 {
+    color: #111;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+/* QUANTITY */
+
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.cart-quantity button {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #f1f1f1;
+    color: #111;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.cart-quantity button:hover {
+    background: #d9b36c;
+    color: #fff;
+}
+
+.cart-quantity span {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-weight: 700;
+    color: #111;
+}
+
+/* ITEM PRICE / REMOVE AREA */
+
+.cart-item > .remove-btn {
+    align-self: center;
+}
+
+.remove-btn {
+    border: none;
+
+    background: #111;
+    color: #fff;
+
+    padding: 11px 20px;
+
+    border-radius: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.remove-btn:hover {
+    background: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   CART SUMMARY
+===================================================== */
+
+.cart-summary {
+    max-width: 500px;
+
+    margin: 45px 0 0 auto;
+
+    padding: 35px;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    box-shadow: 0 12px 35px rgba(0,0,0,.08);
+}
+
+.cart-summary h2 {
+    font-size: 1.7rem;
+    color: #111;
+
+    margin-bottom: 25px;
+}
+
+/* SUMMARY ROW */
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 0;
+
+    color: #555;
+
+    font-size: 1rem;
+}
+
+/* TOTAL */
+
+.total-row {
+    border-top: 1px solid #eee;
+
+    margin-top: 10px;
+    padding-top: 22px;
+
+    font-size: 1.35rem;
+
+    color: #111;
+}
+
+.total-row strong:last-child {
+    color: #d9b36c;
+}
+
+/* CHECKOUT BUTTON */
+
+.cart-summary .checkout-btn {
+    display: flex;
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 17px 25px;
+}
+
+/* CONTINUE SHOPPING */
+
+.continue-shopping {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: #555;
+
+    font-size: .95rem;
+
+    transition: .3s ease;
+}
+
+.continue-shopping:hover {
+    color: #d9b36c;
+}
+
+/* =====================================================
+   EMPTY CART
+===================================================== */
+
+.empty-cart {
+    background: #fff;
+
+    padding: 70px 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.07);
+}
+
+.empty-cart h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.empty-cart p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* =====================================================
+   CART RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .cart-item {
+        grid-template-columns: 110px 1fr;
+        gap: 22px;
+    }
+
+    .cart-item > .remove-btn {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+    .cart-item img {
+        width: 110px;
+        height: 130px;
+    }
+
+    .cart-summary {
+        max-width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .cart-page {
+        padding: 135px 0 70px;
+    }
+
+    .cart-page h1 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .cart-page .cart-subtitle {
+        margin-top: -20px;
+        margin-bottom: 35px;
+    }
+
+    .cart-item {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 18px;
+
+        padding: 20px;
+
+        text-align: left;
+    }
+
+    .cart-item img {
+        width: 100%;
+        height: 280px;
+    }
+
+    .cart-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .cart-quantity {
+        margin-top: 15px;
+    }
+
+    .cart-item > .remove-btn {
+        width: 100%;
+    }
+
+    .cart-summary {
+        margin-top: 30px;
+
+        padding: 25px 20px;
+    }
+
+    .cart-summary h2 {
+        font-size: 1.4rem;
+    }
+
+    .summary-row {
+        font-size: .95rem;
+    }
+
+    .total-row {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .cart-page h1 {
+        font-size: 1.9rem;
+    }
+
+    .cart-item img {
+        height: 240px;
+    }
+
+    .cart-summary {
+        padding: 22px 18px;
+    }
+
+}
+/* ===============================
+   COMPLETE ORDER BUTTON SPACING
+=============================== */
+
+.checkout-form .checkout-btn {
+    margin-top: 35px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+
+}
+/* =====================================
+   CENTER COMPLETE ORDER BUTTON
+===================================== */
+
+.checkout-form .checkout-btn {
+    display: flex;
+    width: 70%;
+    margin: 35px auto 10px;
+}
+
+/* Add more breathing room after payment methods */
+.payment-methods {
+    margin-bottom: 35px;
+    
 }
 
