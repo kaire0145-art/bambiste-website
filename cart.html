@@ -17,32 +17,61 @@
 
 </head>
 
+
 <body class="inner-page">
+
+
+<!-- ===============================
+HEADER
+================================ -->
 
 <header>
 
 <nav class="navbar">
 
 <a href="index.html" class="logo">
+
 <img src="logo.PNG" alt="Bambiste Logo">
+
 <span>BAMBISTE</span>
+
 </a>
+
 
 <div class="menu-toggle" id="menu-toggle">
 ☰
 </div>
 
+
 <ul class="nav-links" id="nav-links">
 
-<li><a href="index.html">Home</a></li>
-<li><a href="shop.html">Shop</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li>
+<a href="shop.html">Shop</a>
+</li>
+
+<li>
+<a href="about.html">About</a>
+</li>
+
+<li>
+<a href="contact.html">Contact</a>
+</li>
+
 
 <li class="cart-link">
+
 <a href="cart.html">
-🛒 <span id="cart-count">0</span>
+
+🛒
+
+<span id="cart-count">0</span>
+
 </a>
+
 </li>
 
 </ul>
@@ -52,69 +81,166 @@
 </header>
 
 
-<section class="product-page">
+
+<!-- ===============================
+CART PAGE
+================================ -->
+
+<main>
+
+<section class="cart-page">
 
 <div class="container">
 
-<h1 style="margin-bottom:15px;">
+
+<!-- PAGE HEADER -->
+
+<div class="cart-heading">
+
+<p class="section-subtitle">
+YOUR BAG
+</p>
+
+<h1>
 Shopping Cart
 </h1>
 
-<p style="color:#777;margin-bottom:40px;">
-Review your items before checkout.
+<p>
+Review your selected items before checkout.
 </p>
+
+</div>
+
+
+
+<!-- CART LAYOUT -->
+
+<div class="cart-layout">
+
+
+<!-- ===============================
+CART ITEMS
+================================ -->
+
+<div class="cart-products">
+
+
+<div class="cart-products-header">
+
+<h2>
+Your Items
+</h2>
+
+<span id="cart-item-count">
+</span>
+
+</div>
+
 
 <div id="cart-items">
 
-<!-- Cart items are inserted automatically by cart.js -->
+<!-- Cart products are inserted by cart.js -->
 
 </div>
 
-<div class="cart-summary">
 
-<h2>Order Summary</h2>
+<!-- CONTINUE SHOPPING -->
+
+<div class="continue-shopping">
+
+<a href="shop.html" class="continue-link">
+
+← Continue Shopping
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- ===============================
+ORDER SUMMARY
+================================ -->
+
+<aside class="cart-summary">
+
+
+<h2>
+Order Summary
+</h2>
+
 
 <div class="summary-row">
 
-<span>Subtotal</span>
+<span>
+Subtotal
+</span>
 
-<strong>£<span id="subtotal">0.00</span></strong>
+<strong>
+£<span id="subtotal">0.00</span>
+</strong>
 
 </div>
+
 
 <div class="summary-row">
 
-<span>Shipping</span>
+<span>
+Shipping
+</span>
 
-<strong>FREE</strong>
+<strong>
+FREE
+</strong>
 
 </div>
+
+
+<div class="summary-note">
+
+Free shipping on all orders.
+
+</div>
+
 
 <hr>
 
+
 <div class="summary-row total-row">
 
-<span>Total</span>
+<span>
+Total
+</span>
 
-<strong>£<span id="total">0.00</span></strong>
+<strong>
+£<span id="total">0.00</span>
+</strong>
 
 </div>
 
-<br>
 
-<a href="checkout.html" class="btn checkout-btn">
+
+<!-- CHECKOUT -->
+
+<a href="checkout.html"
+   class="btn checkout-btn">
 
 Proceed to Checkout
 
 </a>
 
-<br><br>
 
-<a href="shop.html" class="btn secondary-btn">
+<p class="secure-checkout">
 
-Continue Shopping
+🔒 Secure checkout
 
-</a>
+</p>
+
+
+</aside>
+
 
 </div>
 
@@ -122,8 +248,18 @@ Continue Shopping
 
 </section>
 
+</main>
+
+
+
+<!-- ===============================
+SCRIPTS
+================================ -->
+
 <script src="script.js"></script>
+
 <script src="cart.js"></script>
+
 
 </body>
 
