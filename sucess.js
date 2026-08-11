@@ -2,53 +2,115 @@
 // SUCCESS PAGE
 // ===============================
 
-const savedOrder = JSON.parse(
-    localStorage.getItem("lastOrder")
-);
+document.addEventListener("DOMContentLoaded", function () {
 
-const successItems =
-    document.getElementById("success-items");
+    // ===============================
+    // LOAD SAVED ORDER
+    // ===============================
 
-const successTotal =
-    document.getElementById("success-total");
+    const savedOrder =
+        JSON.parse(localStorage.getItem("lastOrder"));
+
+    console.log("Saved order:", savedOrder);
 
 
-// ===============================
-// CHECK SAVED ORDER
-// ===============================
+    // ===============================
+    // GET ELEMENTS
+    // ===============================
 
-if (!savedOrder) {
+    const successItems =
+        document.getElementById("success-items");
 
-    if (successItems) {
+    const successTotal =
+        document.getElementById("success-total");
+
+
+    const customerName =
+        document.getElementById("customer-name");
+
+    const customerEmail =
+        document.getElementById("customer-email");
+
+    const customerPhone =
+        document.getElementById("customer-phone");
+
+    const customerAddress =
+        document.getElementById("customer-address");
+
+    const customerCity =
+        document.getElementById("customer-city");
+
+    const customerPostcode =
+        document.getElementById("customer-postcode");
+
+    const customerCountry =
+        document.getElementById("customer-country");
+
+
+    // ===============================
+    // CHECK ELEMENTS
+    // ===============================
+
+    if (!successItems || !successTotal) {
+
+        console.error(
+            "Success page elements are missing."
+        );
+
+        return;
+    }
+
+
+    // ===============================
+    // CHECK ORDER
+    // ===============================
+
+    if (!savedOrder) {
+
         successItems.innerHTML = `
             <p>No order information found.</p>
         `;
-    }
 
-    if (successTotal) {
         successTotal.textContent = "0.00";
+
+        return;
     }
 
-} else {
+
+    console.log(
+        "Order items:",
+        savedOrder.items
+    );
+
 
     // ===============================
-    // DISPLAY ORDER ITEMS
+    // DISPLAY PRODUCTS
     // ===============================
 
-    if (successItems && savedOrder.items) {
+    successItems.innerHTML = "";
 
-        successItems.innerHTML = "";
+    let calculatedTotal = 0;
+
+
+    if (
+        Array.isArray(savedOrder.items) &&
+        savedOrder.items.length > 0
+    ) {
 
         savedOrder.items.forEach(item => {
 
             const price =
-                Number(item.price) || 0;
+                parseFloat(item.price) || 0;
 
             const quantity =
-                Number(item.quantity) || 1;
+                parseInt(item.quantity) || 1;
 
             const itemTotal =
                 price * quantity;
+
+
+            calculatedTotal += itemTotal;
+
 
             successItems.innerHTML += `
 
@@ -80,6 +142,12 @@ if (!savedOrder) {
 
         });
 
+    } else {
+
+        successItems.innerHTML = `
+            <p>No products found.</p>
+        `;
+
     }
 
 
@@ -87,16 +155,21 @@ if (!savedOrder) {
     // DISPLAY TOTAL
     // ===============================
 
-    if (successTotal) {
+    // Calculate from the products rather than
+    // relying only on savedOrder.total.
 
-        successTotal.textContent =
-            Number(savedOrder.total || 0).toFixed(2);
+    successTotal.textContent =
+        calculatedTotal.toFixed(2);
 
-    }
+
+    console.log(
+        "Calculated order total:",
+        calculatedTotal
+    );
 
 
     // ===============================
-    // CUSTOMER DETAILS
+    // DISPLAY CUSTOMER DETAILS
     // ===============================
 
     if (savedOrder.customer) {
@@ -104,71 +177,42 @@ if (!savedOrder) {
         const customer =
             savedOrder.customer;
 
-        const customerDetails =
-            document.createElement("div");
 
-        customerDetails.className =
-            "customer-details";
+        if (customerName) {
+            customerName.textContent =
+                customer.name || "";
+        }
 
-        customerDetails.innerHTML = `
+        if (customerEmail) {
+            customerEmail.textContent =
+                customer.email || "";
+        }
 
-            <h2>Delivery Details</h2>
+        if (customerPhone) {
+            customerPhone.textContent =
+                customer.phone || "";
+        }
 
-            <div class="customer-info">
+        if (customerAddress) {
+            customerAddress.textContent =
+                customer.address || "";
+        }
 
-                <p>
-                    <strong>Name:</strong>
-                    ${customer.name}
-                </p>
+        if (customerCity) {
+            customerCity.textContent =
+                customer.city || "";
+        }
 
-                <p>
-                    <strong>Email:</strong>
-                    ${customer.email}
-                </p>
+        if (customerPostcode) {
+            customerPostcode.textContent =
+                customer.postcode || "";
+        }
 
-                <p>
-                    <strong>Phone:</strong>
-                    ${customer.phone}
-                </p>
-
-                <p>
-                    <strong>Address:</strong>
-                    ${customer.address}
-                </p>
-
-                <p>
-                    <strong>City:</strong>
-                    ${customer.city}
-                </p>
-
-                <p>
-                    <strong>Postcode:</strong>
-                    ${customer.postcode}
-                </p>
-
-                <p>
-                    <strong>Country:</strong>
-                    ${customer.country}
-                </p>
-
-            </div>
-
-        `;
-
-        const orderConfirmation =
-            document.querySelector(
-                ".order-confirmation"
-            );
-
-        if (orderConfirmation) {
-
-            orderConfirmation.parentNode.insertBefore(
-                customerDetails,
-                orderConfirmation
-            );
-
+        if (customerCountry) {
+            customerCountry.textContent =
+                customer.country || "";
         }
 
     }
 
-}
+});
