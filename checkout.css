@@ -399,3 +399,29 @@
     }
 
 }
+.cash-on-delivery {
+    cursor: default;
+    border-color: #d9b36c;
+    background: #faf3e3;
+}
+
+.cash-on-delivery:hover {
+    transform: none;
+}
+
+.cash-on-delivery .payment-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #d9b36c;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+}
