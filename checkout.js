@@ -1,8 +1,13 @@
 // ===============================
-// CHECKOUT
+// BAMBISTE CHECKOUT
+// CASH ON DELIVERY
 // ===============================
 
-// Load cart
+
+// ===============================
+// LOAD CART
+// ===============================
+
 const checkoutCart =
     JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -31,7 +36,10 @@ function displayCheckout() {
     let total = 0;
 
 
-    // Empty cart
+    // ===============================
+    // EMPTY CART
+    // ===============================
+
     if (checkoutCart.length === 0) {
 
         checkoutItems.innerHTML = `
@@ -48,14 +56,20 @@ function displayCheckout() {
     }
 
 
-    // Display products
+    // ===============================
+    // DISPLAY PRODUCTS
+    // ===============================
+
     checkoutCart.forEach(item => {
 
-        const price = Number(item.price) || 0;
+        const price =
+            Number(item.price) || 0;
 
-        const quantity = Number(item.quantity) || 1;
+        const quantity =
+            Number(item.quantity) || 1;
 
-        const itemTotal = price * quantity;
+        const itemTotal =
+            price * quantity;
 
         total += itemTotal;
 
@@ -74,7 +88,7 @@ function displayCheckout() {
                     <h3>${item.name}</h3>
 
                     <p>
-                        Size: ${item.size}
+                        Size: ${item.size || "N/A"}
                     </p>
 
                     <p>
@@ -94,10 +108,15 @@ function displayCheckout() {
     });
 
 
-    // Show totals
+    // ===============================
+    // DISPLAY TOTALS
+    // ===============================
+
     if (subtotalElement) {
+
         subtotalElement.textContent =
             total.toFixed(2);
+
     }
 
     totalElement.textContent =
@@ -106,29 +125,8 @@ function displayCheckout() {
 }
 
 
+// Run checkout display
 displayCheckout();
-
-
-// ===============================
-// PAYMENT METHOD
-// ===============================
-
-const paymentMethods =
-    document.querySelectorAll(".payment-option");
-
-paymentMethods.forEach(method => {
-
-    method.addEventListener("click", function () {
-
-        paymentMethods.forEach(m => {
-            m.classList.remove("selected");
-        });
-
-        this.classList.add("selected");
-
-    });
-
-});
 
 
 // ===============================
@@ -142,11 +140,9 @@ if (checkoutForm) {
 
     checkoutForm.addEventListener(
         "submit",
-        function(e) {
+        async function(e) {
 
             e.preventDefault();
-
-            console.log("Checkout form submitted");
 
 
             // ===============================
@@ -174,50 +170,31 @@ if (checkoutForm) {
 
 
             // ===============================
-            // PAYMENT METHOD
+            // GET CUSTOMER DETAILS
             // ===============================
-
-            const selectedPayment =
-                document.querySelector(
-                    ".payment-option.selected"
-                );
-
-
-            if (!selectedPayment) {
-
-                alert(
-                    "Please select a payment method."
-                );
-
-                return;
-            }
-
-
-            // ===============================
-            // GET FORM VALUES
-            // ===============================
-
-            const inputs =
-                checkoutForm.querySelectorAll(
-                    "input, select"
-                );
-
 
             const customer = {
 
-                name: inputs[0].value.trim(),
+                name:
+                    document.getElementById("fullName").value.trim(),
 
-                email: inputs[1].value.trim(),
+                email:
+                    document.getElementById("email").value.trim(),
 
-                phone: inputs[2].value.trim(),
+                phone:
+                    document.getElementById("phone").value.trim(),
 
-                address: inputs[3].value.trim(),
+                address:
+                    document.getElementById("address").value.trim(),
 
-                city: inputs[4].value.trim(),
+                city:
+                    document.getElementById("city").value.trim(),
 
-                postcode: inputs[5].value.trim(),
+                postcode:
+                    document.getElementById("postcode").value.trim(),
 
-                country: inputs[6].value
+                country:
+                    document.getElementById("country").value
 
             };
 
@@ -254,9 +231,7 @@ if (checkoutForm) {
 
                 total: finalTotal,
 
-                paymentMethod:
-                    selectedPayment.dataset.payment ||
-                    "card",
+                paymentMethod: "Cash on Delivery",
 
                 date:
                     new Date().toISOString()
@@ -265,34 +240,111 @@ if (checkoutForm) {
 
 
             // ===============================
-            // SAVE ORDER
+            // BUTTON
             // ===============================
 
-            localStorage.setItem(
-                "lastOrder",
-                JSON.stringify(order)
-            );
+            const placeOrderButton =
+                document.getElementById("place-order");
 
+            if (placeOrderButton) {
 
-            console.log(
-                "Order saved:",
-                order
-            );
+                placeOrderButton.disabled = true;
 
+                placeOrderButton.textContent =
+                    "Placing Order...";
 
-            // ===============================
-            // CLEAR CART
-            // ===============================
-
-            localStorage.removeItem("cart");
+            }
 
 
             // ===============================
-            // GO TO SUCCESS
+            // SEND ORDER TO GODADDY
             // ===============================
 
-            window.location.href =
-                "success.html";
+            try {
+
+                const response =
+                    await fetch(
+                        "https://bambiste.co.uk/api/place-order.php",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(order)
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                // ===============================
+                // SUCCESS
+                // ===============================
+
+                if (result.success) {
+
+                    // Save order locally
+                    localStorage.setItem(
+                        "lastOrder",
+                        JSON.stringify(order)
+                    );
+
+
+                    // Clear cart
+                    localStorage.removeItem("cart");
+
+
+                    // Go to success page
+                    window.location.href =
+                        "success.html";
+
+                    return;
+                }
+
+
+                // ===============================
+                // SERVER ERROR
+                // ===============================
+
+                alert(
+                    result.message ||
+                    "Something went wrong while placing your order."
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Order submission error:",
+                    error
+                );
+
+
+                alert(
+                    "We could not connect to the order system. Please try again."
+                );
+
+            }
+
+
+            // ===============================
+            // RESET BUTTON
+            // ===============================
+
+            if (placeOrderButton) {
+
+                placeOrderButton.disabled = false;
+
+                placeOrderButton.textContent =
+                    "Complete Order";
+
+            }
 
         }
     );
